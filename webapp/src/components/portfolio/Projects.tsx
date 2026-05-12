@@ -1,7 +1,9 @@
+import { useRef } from "react";
 import FadeIn from "./FadeIn";
 import DowntimeDashboard from "./visuals/DowntimeDashboard";
 import InventoryChart from "./visuals/InventoryChart";
 import AIAgentGraph from "./visuals/AIAgentGraph";
+import { useParallax } from "@/hooks/useParallax";
 
 type ProjectBase = {
   id: string;
@@ -89,12 +91,12 @@ const projects: Project[] = [
     tech: ["SAP", "S&OP", "Capacity Planning", "Cross-functional Coordination"],
     visual: "image",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FWLDy1sXRVjngYvxocXoWOmSEn-t4HZy3g&s",
+      "https://data-cdn.euroncap.com/media/assessment-media/f60f165c-a59f-418b-a05c-bfa413115173/Toyota_Aygo-X_2022__2b50b6d5da202424_xl.webp",
     imageAlt: "Toyota Aygo X production launch",
   },
 ];
 
-function ProjectVisual({ project }: { project: Project }) {
+function ProjectVisual({ project, containerRef }: { project: Project; containerRef?: React.RefObject<HTMLDivElement> }) {
   if (project.visual === "image") {
     return (
       <img
@@ -111,6 +113,9 @@ function ProjectVisual({ project }: { project: Project }) {
 }
 
 export default function Projects() {
+  const projectRefs = useRef<(React.RefObject<HTMLDivElement> | null)[]>([]);
+  const parallaxRefs = projects.map(() => useParallax(0.2));
+
   return (
     <section id="projects" className="bg-white py-24 border-t border-black/[0.06]">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
@@ -177,7 +182,7 @@ export default function Projects() {
 
                 {/* Visual side */}
                 <div className="md:col-span-7 overflow-hidden bg-[#f5f5f5] rounded-[14px]" style={{ minHeight: "300px" }}>
-                  <div className="w-full h-full" style={{ aspectRatio: "16/10" }}>
+                  <div ref={parallaxRefs[index]} className="w-full h-full" style={{ aspectRatio: "16/10" }}>
                     <ProjectVisual project={project} />
                   </div>
                 </div>

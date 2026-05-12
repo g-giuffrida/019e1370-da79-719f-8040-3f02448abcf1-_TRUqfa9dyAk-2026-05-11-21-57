@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
+import { useParallax } from "@/hooks/useParallax";
 
 const companies = [
   {
@@ -23,7 +24,7 @@ const education = [
     description: "Professional Certificate in Generative AI for Data Analysis, 2026.",
   },
   {
-    logo: "/logo-rug.png",
+    logo: "https://www.rug.nl/about-ug/practical-matters/huisstijl/logobank-new/corporatelogo/corporatelogorood/rugr_logoen_rood_rgb.gif",
     alt: "University of Groningen",
     description: "MSc Global Supply Chain Management · BSc International Business.",
   },
@@ -32,6 +33,7 @@ const education = [
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const photoRef = useParallax(0.3);
 
   useEffect(() => {
     setMounted(true);
@@ -50,7 +52,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-8">
             <div className={`${fade(0)} transition-delay-[0ms]`} style={{ transitionDelay: "0ms" }}>
-              <p className="text-xs uppercase tracking-[0.22em] text-black/35 mb-8">
+              <p className="text-xs uppercase tracking-[0.22em] text-black mb-8">
                 Zurich, Switzerland · EN · IT · ES · DE
               </p>
             </div>
@@ -67,14 +69,14 @@ export default function Hero() {
               <p className="text-base font-medium text-black mb-8 tracking-wide">
                 Operations, Data & AI Professional
               </p>
-              <div className="max-w-lg space-y-2.5 mb-12">
+              <div className="max-w-2xl space-y-2.5 mb-12">
                 {[
                   "Operations & Data Analyst with 5+ years turning ambiguous production problems into systems that work.",
                   "Background in clean energy manufacturing (Climeworks) and automotive production (Toyota).",
                   "I build what doesn't exist yet: tracking pipelines, AI failure classifiers, and live decision tools.",
                   "Based in Zurich, Swiss B Permit — open to operations, data, and AI-adjacent roles.",
                 ].map((line, i) => (
-                  <p key={i} className="text-sm text-black/60 leading-relaxed font-light">
+                  <p key={i} className="text-sm text-black leading-relaxed font-light">
                     {line}
                   </p>
                 ))}
@@ -104,8 +106,8 @@ export default function Hero() {
           </div>
 
           {/* Photo */}
-          <div className="hidden md:flex md:col-span-4 justify-end items-start pt-2">
-            <div style={{ transitionDelay: "500ms" }} className={fade(500)}>
+          <div className="hidden md:flex md:col-span-4 justify-end items-start pt-2 overflow-hidden">
+            <div ref={photoRef} style={{ transitionDelay: "500ms" }} className={fade(500)}>
               <img
                 src="/giulio.jpg"
                 alt="Giulio Giuffrida"
