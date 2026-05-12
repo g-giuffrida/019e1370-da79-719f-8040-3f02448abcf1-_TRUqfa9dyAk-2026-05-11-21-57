@@ -1,9 +1,8 @@
-import { useRef } from "react";
 import FadeIn from "./FadeIn";
 import DowntimeDashboard from "./visuals/DowntimeDashboard";
 import InventoryChart from "./visuals/InventoryChart";
 import AIAgentGraph from "./visuals/AIAgentGraph";
-import { useParallax } from "@/hooks/useParallax";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 type ProjectBase = {
   id: string;
@@ -113,8 +112,6 @@ function ProjectVisual({ project, containerRef }: { project: Project; containerR
 }
 
 export default function Projects() {
-  const projectRefs = useRef<(React.RefObject<HTMLDivElement> | null)[]>([]);
-  const parallaxRefs = projects.map(() => useParallax(0.2));
 
   return (
     <section id="projects" className="bg-white py-24 border-t border-black/[0.06]">
@@ -129,7 +126,9 @@ export default function Projects() {
         </FadeIn>
 
         <div className="space-y-0">
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            const { ref: visualRef, isVisible } = useScrollReveal();
+            return (
             <FadeIn key={project.id} delay={index * 80}>
               <div className="grid grid-cols-1 md:grid-cols-12 gap-0 py-16 border-b border-black items-start">
 
@@ -181,15 +180,24 @@ export default function Projects() {
                 </div>
 
                 {/* Visual side */}
-                <div className="md:col-span-7 bg-[#f5f5f5] rounded-[14px] overflow-hidden" style={{ minHeight: "300px" }}>
-                  <div ref={parallaxRefs[index]} className="w-full h-full" style={{ aspectRatio: "16/10" }}>
+                <div
+                  ref={visualRef}
+                  className="md:col-span-7 bg-[#f5f5f5] rounded-[14px] overflow-hidden transition-all duration-1000 ease-out"
+                  style={{
+                    minHeight: "300px",
+                    opacity: isVisible ? 1 : 0.5,
+                    transform: isVisible ? "scale(1) translateY(0)" : "scale(0.92) translateY(30px)",
+                  }}
+                >
+                  <div className="w-full h-full" style={{ aspectRatio: "16/10" }}>
                     <ProjectVisual project={project} />
                   </div>
                 </div>
 
               </div>
             </FadeIn>
-          ))}
+          );
+          })}
         </div>
       </div>
     </section>

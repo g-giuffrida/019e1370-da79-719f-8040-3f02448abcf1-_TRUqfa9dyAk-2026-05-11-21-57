@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
-import { useParallax } from "@/hooks/useParallax";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const companies = [
   {
@@ -33,7 +33,7 @@ const education = [
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
-  const photoRef = useParallax(0.3);
+  const { ref: photoRef, isVisible: photoVisible } = useScrollReveal();
 
   useEffect(() => {
     setMounted(true);
@@ -107,14 +107,21 @@ export default function Hero() {
 
           {/* Photo */}
           <div className="hidden md:flex md:col-span-4 justify-end items-start pt-2">
-            <div style={{ transitionDelay: "500ms" }} className={`${fade(500)} overflow-hidden rounded-[14px]`}>
-              <div ref={photoRef}>
-                <img
-                  src="/giulio.jpg"
-                  alt="Giulio Giuffrida"
-                  className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top"
-                />
-              </div>
+            <div
+              ref={photoRef}
+              style={{ transitionDelay: "500ms" }}
+              className={`${fade(500)} overflow-hidden rounded-[14px] transition-all duration-1000 ease-out`}
+              style={{
+                opacity: photoVisible ? 1 : 0.6,
+                transform: photoVisible ? "scale(1) translateY(0)" : "scale(0.95) translateY(20px)",
+                transitionDelay: "500ms"
+              }}
+            >
+              <img
+                src="/giulio.jpg"
+                alt="Giulio Giuffrida"
+                className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top"
+              />
             </div>
           </div>
         </div>
