@@ -181,7 +181,7 @@ export default function Projects() {
                 </div>
 
                 {/* Visual side */}
-                <div className="md:col-span-7 overflow-hidden bg-[#f5f5f5] rounded-[14px]" style={{ minHeight: "300px" }}>
+                <div className="md:col-span-7 bg-[#f5f5f5] rounded-[14px] overflow-hidden" style={{ minHeight: "300px" }}>
                   <div ref={parallaxRefs[index]} className="w-full h-full" style={{ aspectRatio: "16/10" }}>
                     <ProjectVisual project={project} />
                   </div>

@@ -2,18 +2,26 @@ import { useEffect, useRef } from "react";
 
 export function useParallax(speed: number = 0.5) {
   const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    const container = containerRef.current?.parentElement;
+    if (!element || !container) return;
 
     const handleScroll = () => {
-      const rect = element.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
       const scrollY = window.scrollY;
-      const elementTop = rect.top + scrollY;
-      const parallaxOffset = (scrollY - elementTop) * speed;
+      const containerTop = containerRect.top + scrollY;
 
-      element.style.transform = `translateY(${parallaxOffset}px)`;
+      // Only apply parallax when element is in viewport
+      const elementInView = containerRect.top < window.innerHeight && containerRect.bottom > 0;
+
+      if (elementInView) {
+        const distance = scrollY - containerTop;
+        const parallaxOffset = distance * speed;
+        element.style.transform = `translateY(${parallaxOffset}px)`;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

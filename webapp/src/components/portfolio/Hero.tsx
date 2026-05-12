@@ -106,13 +106,15 @@ export default function Hero() {
           </div>
 
           {/* Photo */}
-          <div className="hidden md:flex md:col-span-4 justify-end items-start pt-2 overflow-hidden">
-            <div ref={photoRef} style={{ transitionDelay: "500ms" }} className={fade(500)}>
-              <img
-                src="/giulio.jpg"
-                alt="Giulio Giuffrida"
-                className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top rounded-[14px]"
-              />
+          <div className="hidden md:flex md:col-span-4 justify-end items-start pt-2">
+            <div style={{ transitionDelay: "500ms" }} className={`${fade(500)} overflow-hidden rounded-[14px]`}>
+              <div ref={photoRef}>
+                <img
+                  src="/giulio.jpg"
+                  alt="Giulio Giuffrida"
+                  className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top"
+                />
+              </div>
             </div>
           </div>
         </div>
