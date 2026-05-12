@@ -1,102 +1,69 @@
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-  LineChart,
-  Line,
-  Legend,
-} from "recharts";
 import FadeIn from "./FadeIn";
 
-const downtimeByReason = [
-  { reason: "Mechanical", hours: 34 },
-  { reason: "Electrical", hours: 21 },
-  { reason: "Software", hours: 15 },
-  { reason: "Maintenance", hours: 28 },
-  { reason: "External", hours: 9 },
+const projects = [
+  {
+    title: "Swiss Hiking App",
+    description: "Developed a mobile app for Swiss hiking trails with real-time weather integration and route optimization.",
+    technologies: ["React Native", "Node.js", "MongoDB"],
+  },
+  {
+    title: "Multi-Agentic AI at Climeworks",
+    description: "Built a multi-agent AI system for optimizing clean energy operations and predictive maintenance.",
+    technologies: ["Python", "Azure OpenAI", "LangChain"],
+  },
+  {
+    title: "Led Start of Production of Aygo X",
+    description: "Coordinated the launch of Toyota Aygo X model across planning, logistics, and manufacturing teams.",
+    technologies: ["SAP", "Excel", "Project Management"],
+  },
+  {
+    title: "Automatic Downtime Reporting System at Climeworks",
+    description: "Engineered an automated system for real-time downtime tracking and reporting in clean energy facilities.",
+    technologies: ["Python", "Power BI", "SQL"],
+  },
+  {
+    title: "Inventory Optimization in Python at Toyota",
+    description: "Created Python-based tools to optimize inventory management, tracking $1.2M in aged stock.",
+    technologies: ["Python", "pandas", "scikit-learn"],
+  },
 ];
 
-const failureComponents = [
-  { name: "Valve", value: 32 },
-  { name: "Sensor", value: 24 },
-  { name: "Motor", value: 19 },
-  { name: "Controller", value: 14 },
-  { name: "Other", value: 11 },
-];
+export default function Projects() {
+  return (
+    <section id="projects" className="bg-white py-24 border-t border-black/10">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
+        <FadeIn>
+          <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">
+            04 — Projects
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-16">
+            Examples of My Work
+          </h2>
+        </FadeIn>
 
-const PIE_COLORS = ["#000000", "#555555", "#888888", "#AAAAAA", "#CCCCCC"];
-
-const downtimeKPIs = [
-  { label: "Availability", value: "87.3%" },
-  { label: "MTTR", value: "2.4h" },
-  { label: "Incidents / Month", value: "14" },
-];
-
-const inventoryByAge = [
-  { bucket: "<30d", LineA: 320, LineB: 280, LineC: 410 },
-  { bucket: "30–60d", LineA: 180, LineB: 130, LineC: 220 },
-  { bucket: "61–90d", LineA: 95, LineB: 75, LineC: 110 },
-  { bucket: ">90d", LineA: 40, LineB: 30, LineC: 55 },
-];
-
-const agedTrend = [
-  { month: "Oct", pct: 38 },
-  { month: "Nov", pct: 35 },
-  { month: "Dec", pct: 32 },
-  { month: "Jan", pct: 29 },
-  { month: "Feb", pct: 26 },
-  { month: "Mar", pct: 22 },
-  { month: "Apr", pct: 18 },
-  { month: "May", pct: 14 },
-];
-
-const inventoryKPIs = [
-  { label: "Total Stock Units", value: "6,240" },
-  { label: "Aged >60d", value: "22.5%" },
-  { label: "Cost of Ageing", value: "$1.2M" },
-];
-
-const productionVsPlan = [
-  { week: "W1", Actual: 88, Plan: 90 },
-  { week: "W2", Actual: 92, Plan: 90 },
-  { week: "W3", Actual: 85, Plan: 90 },
-  { week: "W4", Actual: 94, Plan: 92 },
-  { week: "W5", Actual: 89, Plan: 92 },
-  { week: "W6", Actual: 96, Plan: 92 },
-  { week: "W7", Actual: 91, Plan: 94 },
-  { week: "W8", Actual: 97, Plan: 94 },
-];
-
-const wipStages = [
-  { stage: "Design", pct: 15, color: "#000000" },
-  { stage: "Assembly", pct: 35, color: "#444444" },
-  { stage: "Testing", pct: 28, color: "#888888" },
-  { stage: "Done", pct: 22, color: "#CCCCCC" },
-];
-
-const productionKPIs = [
-  { label: "On-Time Delivery", value: "94.1%" },
-  { label: "WIP Units", value: "312" },
-  { label: "Avg Cycle Time", value: "3.8d" },
-];
-
-const tooltipStyle = {
-  backgroundColor: "#ffffff",
-  border: "1px solid #e5e5e5",
-  borderRadius: "0px",
-  color: "#000000",
-  fontSize: "11px",
-  fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-};
-
-const axisStyle = { fill: "#999999", fontSize: 10, fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" };
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <FadeIn key={project.title} delay={index * 100}>
+              <div className="rounded-[32px] border border-black/10 bg-slate-950/5 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <h3 className="text-xl font-semibold text-black mb-3">{project.title}</h3>
+                <p className="text-sm text-black/50 leading-relaxed font-light mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-black/5 border border-black/10 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function KPIRow({ kpis }: { kpis: { label: string; value: string }[] }) {
   return (
@@ -340,114 +307,31 @@ export default function Projects() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <FadeIn>
           <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">
-            03 — Featured Projects
+            04 — Projects
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-2">
-            Featured Work
+          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-16">
+            Examples of My Work
           </h2>
-          <p className="text-sm text-black/40 max-w-xl mb-12 font-light">
-            High-impact projects in AI, operations, and data systems. Each case highlights tools, outcomes, and modern workflows designed for scale.
-          </p>
         </FadeIn>
 
-        <FadeIn delay={100}>
-          <DowntimeDashboard />
-        </FadeIn>
-        <FadeIn delay={150}>
-          <InventoryDashboard />
-        </FadeIn>
-        <FadeIn delay={200}>
-          <ProductionDashboard />
-        </FadeIn>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          <FadeIn delay={100}>
-            <div className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <div className="h-56 bg-gradient-to-br from-sky-500 via-cyan-400 to-indigo-600 p-6">
-                <div className="h-full rounded-[28px] bg-black/5 border border-white/10" />
-              </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-[0.15em] text-black/40 mb-3">AI-Powered Swiss Hike Finder</p>
-                <h3 className="text-2xl font-semibold text-black mb-3">Web App for personalized hiking routes</h3>
-                <p className="text-sm text-black/50 leading-relaxed mb-5">
-                  A custom web application that curates personalized hiking routes in Switzerland based on user location, desired difficulty, and natural-language AI prompts.
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <FadeIn key={project.title} delay={index * 100}>
+              <div className="rounded-[32px] border border-black/10 bg-slate-950/5 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <h3 className="text-xl font-semibold text-black mb-3">{project.title}</h3>
+                <p className="text-sm text-black/50 leading-relaxed font-light mb-4">
+                  {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'AI Prompts', 'Geolocation', 'UX Design'].map((tag) => (
-                    <span key={tag} className="rounded-full border border-black/10 px-3 py-1 text-[11px] text-black/50">
-                      {tag}
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="text-xs px-2 py-1 bg-black/5 border border-black/10 rounded-full">
+                      {tech}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={150}>
-            <div className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <div className="h-56 bg-gradient-to-br from-fuchsia-500 via-pink-500 to-amber-400 p-6">
-                <div className="h-full rounded-[28px] bg-black/5 border border-white/10" />
-              </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-[0.15em] text-black/40 mb-3">Multi-Agent AI Network</p>
-                <h3 className="text-2xl font-semibold text-black mb-3">Climeworks autonomous AI agents</h3>
-                <p className="text-sm text-black/50 leading-relaxed mb-5">
-                  Designed and deployed an autonomous network of specialized AI agents that communicate to analyze data and streamline complex operations across systems.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['AI Agents', 'Data Integration', 'Automation', 'Climeworks'].map((tag) => (
-                    <span key={tag} className="rounded-full border border-black/10 px-3 py-1 text-[11px] text-black/50">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={200}>
-            <div className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <div className="h-56 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-6">
-                <div className="h-full rounded-[28px] bg-black/5 border border-white/10" />
-              </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-[0.15em] text-black/40 mb-3">Inventory Ageing & Optimization</p>
-                <h3 className="text-2xl font-semibold text-black mb-3">Toyota inventory analytics</h3>
-                <p className="text-sm text-black/50 leading-relaxed mb-5">
-                  Developed Python and Power BI tools to track and manage $1.2M in aged stock, effectively reversing uncontrolled inventory growth with data-driven actions.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['Python', 'Power BI', 'Inventory', '$1.2M'].map((tag) => (
-                    <span key={tag} className="rounded-full border border-black/10 px-3 py-1 text-[11px] text-black/50">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={250}>
-            <div className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-              <div className="h-56 bg-gradient-to-br from-orange-500 via-rose-500 to-violet-500 p-6">
-                <div className="h-full rounded-[28px] bg-black/5 border border-white/10" />
-              </div>
-              <div className="p-6">
-                <p className="text-xs uppercase tracking-[0.15em] text-black/40 mb-3">Machine Downtime Analysis</p>
-                <h3 className="text-2xl font-semibold text-black mb-3">MTTR & sensor data pipelines</h3>
-                <p className="text-sm text-black/50 leading-relaxed mb-5">
-                  Engineered automated data pipelines to ingest shop-floor sensor data, providing same-day decision-making capabilities and drastically cutting root-cause investigation time.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['Sensor Data', 'MTTR', 'Data Pipeline', 'Automation'].map((tag) => (
-                    <span key={tag} className="rounded-full border border-black/10 px-3 py-1 text-[11px] text-black/50">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          ))}
         </div>
       </div>
     </section>

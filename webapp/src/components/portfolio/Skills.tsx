@@ -81,7 +81,7 @@ export default function Skills() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <FadeIn>
           <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">
-            04 — Skills
+            05 — Skills
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-16">
             Capabilities
