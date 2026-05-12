@@ -1,3 +1,10 @@
+import Nav from "@/components/portfolio/Nav";
+import Hero from "@/components/portfolio/Hero";
+import Projects from "@/components/portfolio/Projects";
+import Experience from "@/components/portfolio/Experience";
+import Skills from "@/components/portfolio/Skills";
+import Contact from "@/components/portfolio/Contact";
+
 export default function Index() {
   return (
     <div
@@ -6,6 +13,7 @@ export default function Index() {
         fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
       }}
     >
+      <Nav />
       <main>
         <Hero />
         <Projects />
@@ -16,10 +24,3 @@ export default function Index() {
     </div>
   );
 }
-
-import Nav from "@/components/portfolio/Nav";
-import Hero from "@/components/portfolio/Hero";
-import Experience from "@/components/portfolio/Experience";
-import Projects from "@/components/portfolio/Projects";
-import Skills from "@/components/portfolio/Skills";
-import Contact from "@/components/portfolio/Contact";

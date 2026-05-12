@@ -1,6 +1,40 @@
 import { useEffect, useState } from "react";
 import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
 
+const companies = [
+  {
+    logo: "/logo-climeworks.png",
+    alt: "Climeworks",
+    description:
+      "Operations Data Analyst — AI-powered failure classification and reporting pipelines for direct air capture systems.",
+  },
+  {
+    logo: "/logo-toyota.png",
+    alt: "Toyota",
+    description:
+      "Production Planner & Operations Specialist — Python inventory tools, live plant dashboards, and model launch leadership.",
+  },
+];
+
+const education = [
+  {
+    logo: "/logo-microsoft.png",
+    alt: "Microsoft",
+    description: "Professional Certificate in Generative AI for Data Analysis, 2026.",
+  },
+  {
+    logo: "/logo-rug.png",
+    alt: "University of Groningen",
+    description: "MSc Global Supply Chain Management · BSc International Business.",
+  },
+];
+
+const stats = [
+  { value: "5+", label: "Years Experience" },
+  { value: "2", label: "Industry Sectors" },
+  { value: "4", label: "Fluent Languages" },
+];
+
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
 
@@ -8,142 +42,129 @@ export default function Hero() {
     setMounted(true);
   }, []);
 
-  const experience = [
-    { logo: "/logo-climeworks.png", alt: "Climeworks", summary: "Operations Data Analyst engineering data pipelines for clean energy." },
-    { logo: "/logo-toyota.png", alt: "Toyota", summary: "Operations Specialist who built inventory tools and led model launches." },
-  ];
-
-  const education = [
-    { logo: "/logo-microsoft.png", alt: "Microsoft", summary: "Professional Certificate in Generative AI for Data Analysis." },
-  ];
+  const fade = (delay: number) =>
+    `transition-all duration-700 ease-out ${
+      mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+    }`;
 
   return (
     <section className="relative bg-white">
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 py-24 pt-28 w-full">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 pt-28 pb-24 w-full">
+
+        {/* Name + bio */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           <div className="md:col-span-8">
-            <div
-              className={`transition-all duration-700 ease-out ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            >
-              <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-8">
+            <div className={`${fade(0)} transition-delay-[0ms]`} style={{ transitionDelay: "0ms" }}>
+              <p className="text-xs uppercase tracking-[0.22em] text-black/35 mb-8">
                 Zurich, Switzerland · EN · IT · ES · DE
               </p>
             </div>
 
-            <div
-              className={`transition-all duration-700 ease-out delay-100 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-black leading-[1.1] tracking-tight mb-6">
+            <div style={{ transitionDelay: "100ms" }} className={fade(100)}>
+              <h1 className="text-[56px] sm:text-7xl font-bold text-black leading-[1.05] tracking-tight mb-6">
                 Giulio
                 <br />
                 Giuffrida
               </h1>
             </div>
 
-            <div
-              className={`transition-all duration-700 ease-out delay-200 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            >
-              <p className="text-lg text-black mb-12">
+            <div style={{ transitionDelay: "200ms" }} className={fade(200)}>
+              <p className="text-base font-medium text-black mb-8 tracking-wide">
                 Operations, Data & AI Professional
               </p>
-              <p className="max-w-xl text-sm text-black/60 leading-relaxed mb-12 font-light">
-                I build high-end operations, data, and AI systems for growth-stage tech teams. My work spans clean energy and automotive operations, with a strong focus on pipelines, tooling, and decision support that drive measurable business impact.
-              </p>
-            </div>
+              <div className="max-w-lg space-y-2.5 mb-12">
+                {[
+                  "Operations & Data Analyst with 5+ years turning ambiguous production problems into systems that work.",
+                  "Background in clean energy manufacturing (Climeworks) and automotive production (Toyota).",
+                  "I build what doesn't exist yet: tracking pipelines, AI failure classifiers, and live decision tools.",
+                  "Based in Zurich, Swiss B Permit — open to operations, data, and AI-adjacent roles.",
+                ].map((line, i) => (
+                  <p key={i} className="text-sm text-black/60 leading-relaxed font-light">
+                    {line}
+                  </p>
+                ))}
+              </div>
 
-            <div
-              className={`transition-all duration-700 ease-out delay-300 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-            >
-              <div className="flex flex-wrap gap-6">
+              <div className="flex flex-wrap gap-8">
                 <a
                   href="mailto:g.giuffrida.nl@gmail.com"
-                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-black hover:text-black/60 transition-colors"
+                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-black hover:text-black/50 transition-colors"
                 >
-                  <Mail size={14} />
+                  <Mail size={13} />
                   Get in touch
-                  <ArrowUpRight size={12} className="opacity-40 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight size={11} className="opacity-35 group-hover:opacity-100 transition-opacity" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/giulio-giuffrida/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-black hover:text-black/60 transition-colors"
+                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-black hover:text-black/50 transition-colors"
                 >
-                  <Linkedin size={14} />
+                  <Linkedin size={13} />
                   LinkedIn
-                  <ArrowUpRight size={12} className="opacity-40 group-hover:opacity-100 transition-opacity" />
+                  <ArrowUpRight size={11} className="opacity-35 group-hover:opacity-100 transition-opacity" />
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="hidden md:flex md:col-span-4 justify-end">
-            <div
-              className={`transition-all duration-700 ease-out delay-500 ${mounted ? "opacity-100" : "opacity-0"}`}
-            >
+          {/* Photo */}
+          <div className="hidden md:flex md:col-span-4 justify-end items-start pt-2">
+            <div style={{ transitionDelay: "500ms" }} className={fade(500)}>
               <img
                 src="/giulio.jpg"
                 alt="Giulio Giuffrida"
-                className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top"
+                className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top grayscale"
               />
             </div>
           </div>
         </div>
 
-        <div
-          className={`transition-all duration-700 ease-out delay-[400ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-        >
-          <div className="mt-24 pt-12 border-t border-black/5">
-            <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-12">
-              Experience & Education
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-xs uppercase tracking-[0.1em] text-black/30 mb-8">Experience</h3>
-                <div className="space-y-8">
-                  {experience.map((item, idx) => (
-                    <div key={idx} className="flex gap-4">
-                      <img src={item.logo} alt={item.alt} className="h-6 object-contain flex-shrink-0" />
-                      <p className="text-sm text-black/60 font-light leading-relaxed">{item.summary}</p>
+        {/* Experience + Education logos */}
+        <div style={{ transitionDelay: "400ms" }} className={`${fade(400)} mt-24 pt-12 border-t border-black/[0.06]`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-black/30 mb-9">Experience</p>
+              <div className="space-y-9">
+                {companies.map((item) => (
+                  <div key={item.alt} className="flex items-start gap-5">
+                    <div className="w-[88px] flex-shrink-0 pt-0.5">
+                      <img src={item.logo} alt={item.alt} className="h-6 object-contain object-left" />
                     </div>
-                  ))}
-                </div>
+                    <p className="text-sm text-black/50 leading-relaxed font-light">{item.description}</p>
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3 className="text-xs uppercase tracking-[0.1em] text-black/30 mb-8">Education</h3>
-                <div className="space-y-8">
-                  {education.map((item, idx) => (
-                    <div key={idx} className="flex gap-4">
-                      <img src={item.logo} alt={item.alt} className="h-6 object-contain flex-shrink-0" />
-                      <p className="text-sm text-black/60 font-light leading-relaxed">{item.summary}</p>
+            </div>
+
+            <div>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-black/30 mb-9">Education & Certification</p>
+              <div className="space-y-9">
+                {education.map((item) => (
+                  <div key={item.alt} className="flex items-start gap-5">
+                    <div className="w-[88px] flex-shrink-0 pt-0.5">
+                      <img src={item.logo} alt={item.alt} className="h-6 object-contain object-left" />
                     </div>
-                  ))}
-                </div>
+                    <p className="text-sm text-black/50 leading-relaxed font-light">{item.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
 
-        <div
-          className={`transition-all duration-700 ease-out delay-[600ms] ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-        >
-          <div className="mt-24 pt-12 border-t border-black/5 grid grid-cols-3 gap-8 max-w-md">
-            {[
-              { value: "5+", label: "Years Ops, Data & AI" },
-              { value: "2", label: "Industry Specialties" },
-              { value: "4", label: "Fluent Languages" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-2xl font-bold text-black mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-xs uppercase tracking-[0.1em] text-black/40">
-                  {stat.label}
-                </div>
+        {/* Stats */}
+        <div style={{ transitionDelay: "600ms" }} className={`${fade(600)} mt-16 pt-10 border-t border-black/[0.06]`}>
+          <div className="grid grid-cols-3 gap-8 max-w-xs">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <div className="text-2xl font-bold text-black mb-1.5">{s.value}</div>
+                <div className="text-[10px] uppercase tracking-[0.14em] text-black/35">{s.label}</div>
               </div>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );
