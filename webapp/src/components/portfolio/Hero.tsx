@@ -85,7 +85,7 @@ export default function Hero() {
               <div className="flex flex-wrap gap-8">
                 <a
                   href="mailto:g.giuffrida.nl@gmail.com"
-                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-black hover:text-black/50 transition-colors"
+                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-black hover:text-black transition-colors"
                 >
                   <Mail size={13} />
                   Get in touch
@@ -95,7 +95,7 @@ export default function Hero() {
                   href="https://www.linkedin.com/in/giulio-giuffrida/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-black hover:text-black/50 transition-colors"
+                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-black hover:text-black transition-colors"
                 >
                   <Linkedin size={13} />
                   LinkedIn
@@ -137,7 +137,7 @@ export default function Hero() {
                     <div className="w-[88px] flex-shrink-0 pt-0.5">
                       <img src={item.logo} alt={item.alt} className="h-9 object-contain object-left" />
                     </div>
-                    <p className="text-sm text-black/50 leading-relaxed font-light">{item.description}</p>
+                    <p className="text-sm text-black leading-relaxed font-light">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -151,7 +151,7 @@ export default function Hero() {
                     <div className="w-[88px] flex-shrink-0 pt-0.5">
                       <img src={item.logo} alt={item.alt} className="h-9 object-contain object-left" />
                     </div>
-                    <p className="text-sm text-black/50 leading-relaxed font-light">{item.description}</p>
+                    <p className="text-sm text-black leading-relaxed font-light">{item.description}</p>
                   </div>
                 ))}
               </div>

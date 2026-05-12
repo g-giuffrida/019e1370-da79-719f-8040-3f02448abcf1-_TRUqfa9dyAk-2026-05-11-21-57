@@ -22,7 +22,7 @@ export default function Contact() {
             </FadeIn>
 
             <FadeIn delay={200}>
-              <p className="text-sm text-black/55 leading-relaxed mb-12 font-light max-w-md">
+              <p className="text-sm text-black leading-relaxed mb-12 font-light max-w-md">
                 Whether you're looking for an operations analyst, a data engineering collaborator,
                 or want to discuss how to make your production data actually usable — I'd love to
                 hear from you.
@@ -69,7 +69,7 @@ export default function Contact() {
                     <span className="text-[10px] uppercase tracking-[0.18em] text-black/30">
                       {item.label}
                     </span>
-                    <span className="text-sm text-black/70">{item.value}</span>
+                    <span className="text-sm text-black">{item.value}</span>
                   </div>
                 ))}
               </div>

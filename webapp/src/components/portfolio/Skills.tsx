@@ -88,7 +88,7 @@ export default function Skills() {
                   {g.skills.map((s) => (
                     <span
                       key={s}
-                      className="text-[11px] text-black/60 border border-black/[0.1] px-2.5 py-1 leading-none"
+                      className="text-[11px] text-black border border-black/[0.1] px-2.5 py-1 leading-none"
                     >
                       {s}
                     </span>

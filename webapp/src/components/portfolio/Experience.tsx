@@ -118,7 +118,7 @@ export default function Experience() {
                         {role.bullets.map((b, bi) => (
                           <li key={bi} className="flex gap-3">
                             <span className="mt-2 w-1 h-1 rounded-full bg-black/20 flex-shrink-0" />
-                            <p className="text-sm text-black/55 leading-relaxed font-light">{b}</p>
+                            <p className="text-sm text-black leading-relaxed font-light">{b}</p>
                           </li>
                         ))}
                       </ul>

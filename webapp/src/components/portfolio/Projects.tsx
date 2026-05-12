@@ -153,7 +153,7 @@ export default function Projects() {
                       <p className="text-[10px] uppercase tracking-[0.18em] text-black/30 mb-2">
                         Problem
                       </p>
-                      <p className="text-sm text-black/60 leading-relaxed font-light">
+                      <p className="text-sm text-black leading-relaxed font-light">
                         {project.problem}
                       </p>
                     </div>
@@ -161,7 +161,7 @@ export default function Projects() {
                       <p className="text-[10px] uppercase tracking-[0.18em] text-black/30 mb-2">
                         What I built
                       </p>
-                      <p className="text-sm text-black/60 leading-relaxed font-light">
+                      <p className="text-sm text-black leading-relaxed font-light">
                         {project.solution}
                       </p>
                     </div>
