@@ -12,28 +12,20 @@ interface EducationItem {
 
 const items: EducationItem[] = [
   {
+    type: "degree",
+    institution: "[Insert your specific degree and university here]",
+    credential: "[Degree] in [Field] — [University Name]",
+    date: "[Year]",
+    location: "Zurich, CH",
+    note: "Update this entry with your exact degree and university.",
+    logo: "/placeholder.svg",
+  },
+  {
     type: "cert",
     institution: "Microsoft",
     credential: "Professional Certificate in Generative AI for Data Analysis",
     date: "Mar 2026",
     logo: "/logo-microsoft.png",
-  },
-  {
-    type: "degree",
-    institution: "University of Groningen",
-    credential: "Master in Global Supply Chain Management",
-    date: "Oct 2021",
-    location: "Groningen, NL",
-    logo: "/logo-rug.svg",
-  },
-  {
-    type: "degree",
-    institution: "University of Groningen & Universidad de Guadalajara",
-    credential: "Bachelor in International Business",
-    date: "Aug 2020",
-    location: "Groningen, NL & Guadalajara, MX",
-    note: "Exchange semester in Mexico",
-    logo: "/logo-rug.svg",
   },
 ];
 

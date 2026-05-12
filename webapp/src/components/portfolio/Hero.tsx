@@ -1,44 +1,12 @@
 import { useEffect, useState } from "react";
 import { Mail, Linkedin, ArrowUpRight } from "lucide-react";
 
-const titles = [
-  "Operations & Data Analyst",
-  "Supply Chain Planner",
-  "Data Engineering Specialist",
-  "Manufacturing Analytics",
-];
-
 export default function Hero() {
-  const [titleIndex, setTitleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    const current = titles[titleIndex];
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (!isDeleting && displayed.length < current.length) {
-      timeout = setTimeout(() => {
-        setDisplayed(current.slice(0, displayed.length + 1));
-      }, 60);
-    } else if (!isDeleting && displayed.length === current.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 2400);
-    } else if (isDeleting && displayed.length > 0) {
-      timeout = setTimeout(() => {
-        setDisplayed(current.slice(0, displayed.length - 1));
-      }, 30);
-    } else if (isDeleting && displayed.length === 0) {
-      setIsDeleting(false);
-      setTitleIndex((i) => (i + 1) % titles.length);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [displayed, isDeleting, titleIndex]);
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center bg-white">
@@ -49,7 +17,7 @@ export default function Hero() {
               className={`transition-all duration-700 ease-out ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
               <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-8">
-                Zurich, Switzerland
+                Zurich, Switzerland · EN · IT · ES · DE
               </p>
             </div>
 
@@ -66,23 +34,28 @@ export default function Hero() {
             <div
               className={`transition-all duration-700 ease-out delay-200 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
-              <div className="flex items-center gap-2 mb-10 h-8">
-                <span className="text-lg sm:text-xl text-black/40 font-light">
-                  {displayed}
-                </span>
-                <span className="w-[2px] h-5 bg-black/40 animate-pulse" />
-              </div>
+              <p className="text-xl sm:text-2xl font-semibold text-black mb-6">
+                Operations, Data & AI Professional
+              </p>
             </div>
 
             <div
               className={`transition-all duration-700 ease-out delay-300 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             >
-              <p className="max-w-xl text-base text-black/50 leading-relaxed mb-12 font-light">
-                Operations and data professional with 5 years of experience across
-                automotive (Toyota) and clean energy (Climeworks) manufacturing. I
-                build data pipelines, planning tools, and AI-assisted systems that
-                turn complex operations into clear decisions.
+              <p className="max-w-xl text-base text-black/50 leading-relaxed mb-6 font-light">
+                I build high-end operations, data, and AI systems for growth-stage tech teams. My work spans clean energy and automotive operations, with a strong focus on pipelines, tooling, and decision support that drive measurable business impact.
               </p>
+              <div className="flex flex-wrap gap-3 mb-8">
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-black/5 border border-black/10 rounded-full">
+                  <span className="text-xs font-medium text-black">Microsoft AI Certificate</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-black/5 border border-black/10 rounded-full">
+                  <span className="text-xs font-medium text-black">Supply Chain MSc</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 bg-black/5 border border-black/10 rounded-full">
+                  <span className="text-xs font-medium text-black">Business BSc</span>
+                </div>
+              </div>
             </div>
 
             <div
@@ -118,7 +91,7 @@ export default function Hero() {
               <img
                 src="/giulio.jpg"
                 alt="Giulio Giuffrida"
-                className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top grayscale"
+                className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top rounded-[32px] shadow-[0_40px_120px_-60px_rgba(14,165,233,0.45)]"
               />
             </div>
           </div>
@@ -129,9 +102,9 @@ export default function Hero() {
         >
           <div className="mt-20 pt-8 border-t border-black/10 grid grid-cols-3 gap-8 max-w-md">
             {[
-              { value: "5+", label: "Years Experience" },
-              { value: "2", label: "Industries" },
-              { value: "4", label: "Languages" },
+              { value: "5+", label: "Years Ops, Data & AI" },
+              { value: "2", label: "Industry Specialties" },
+              { value: "4", label: "Fluent Languages" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl font-bold text-black mb-1">

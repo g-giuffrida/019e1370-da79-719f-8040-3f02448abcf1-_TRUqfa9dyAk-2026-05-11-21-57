@@ -340,13 +340,13 @@ export default function Projects() {
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <FadeIn>
           <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">
-            03 — Work Samples
+            03 — Featured Projects
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-2">
-            Interactive Dashboards
+            Featured Work
           </h2>
-          <p className="text-sm text-black/40 max-w-xl mb-4 font-light">
-            Representative samples of the analytics tools I build. All data is anonymised and fictional — for illustration only.
+          <p className="text-sm text-black/40 max-w-xl mb-12 font-light">
+            High-impact projects in AI, operations, and data systems. Each case highlights tools, outcomes, and modern workflows designed for scale.
           </p>
         </FadeIn>
 
@@ -360,25 +360,95 @@ export default function Projects() {
           <ProductionDashboard />
         </FadeIn>
 
-        <FadeIn delay={250}>
-          <CaseStudyCard
-            title="Start of Production Planning — Toyota Aygo X"
-            tag="Operations · Cross-functional"
-            problem="Launching a new vehicle model requires coordinating suppliers, logistics providers, manufacturing plants and commercial teams simultaneously — any misalignment causes production delays."
-            solution="Led the full SOP planning process for Aygo X across 10+ stakeholder teams: built the launch timeline, coordinated supplier ramp-up, aligned logistics flows and plant readiness."
-            highlights={["10+ stakeholder teams", "Supplier ramp-up", "Logistics flow design", "Plant readiness"]}
-          />
-        </FadeIn>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <FadeIn delay={100}>
+            <div className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div className="h-56 bg-gradient-to-br from-sky-500 via-cyan-400 to-indigo-600 p-6">
+                <div className="h-full rounded-[28px] bg-black/5 border border-white/10" />
+              </div>
+              <div className="p-6">
+                <p className="text-xs uppercase tracking-[0.15em] text-black/40 mb-3">AI-Powered Swiss Hike Finder</p>
+                <h3 className="text-2xl font-semibold text-black mb-3">Web App for personalized hiking routes</h3>
+                <p className="text-sm text-black/50 leading-relaxed mb-5">
+                  A custom web application that curates personalized hiking routes in Switzerland based on user location, desired difficulty, and natural-language AI prompts.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'AI Prompts', 'Geolocation', 'UX Design'].map((tag) => (
+                    <span key={tag} className="rounded-full border border-black/10 px-3 py-1 text-[11px] text-black/50">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FadeIn>
 
-        <FadeIn delay={300}>
-          <CaseStudyCard
-            title="EV Bundle Lifecycle Financial Model"
-            tag="Financial Modelling · Strategy"
-            problem="The EV planning team needed to evaluate the financial impact of introducing different EV bundle packages — but had no structured way to compare scenarios."
-            solution="Built a vehicle lifetime value and lifecycle profitability model in Python/Excel that evaluated product introduction scenarios. Used directly by senior leadership for decision-making."
-            highlights={["Lifetime value modelling", "Scenario analysis", "Python + Excel", "Senior leadership input"]}
-          />
-        </FadeIn>
+          <FadeIn delay={150}>
+            <div className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div className="h-56 bg-gradient-to-br from-fuchsia-500 via-pink-500 to-amber-400 p-6">
+                <div className="h-full rounded-[28px] bg-black/5 border border-white/10" />
+              </div>
+              <div className="p-6">
+                <p className="text-xs uppercase tracking-[0.15em] text-black/40 mb-3">Multi-Agent AI Network</p>
+                <h3 className="text-2xl font-semibold text-black mb-3">Climeworks autonomous AI agents</h3>
+                <p className="text-sm text-black/50 leading-relaxed mb-5">
+                  Designed and deployed an autonomous network of specialized AI agents that communicate to analyze data and streamline complex operations across systems.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['AI Agents', 'Data Integration', 'Automation', 'Climeworks'].map((tag) => (
+                    <span key={tag} className="rounded-full border border-black/10 px-3 py-1 text-[11px] text-black/50">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={200}>
+            <div className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div className="h-56 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 p-6">
+                <div className="h-full rounded-[28px] bg-black/5 border border-white/10" />
+              </div>
+              <div className="p-6">
+                <p className="text-xs uppercase tracking-[0.15em] text-black/40 mb-3">Inventory Ageing & Optimization</p>
+                <h3 className="text-2xl font-semibold text-black mb-3">Toyota inventory analytics</h3>
+                <p className="text-sm text-black/50 leading-relaxed mb-5">
+                  Developed Python and Power BI tools to track and manage $1.2M in aged stock, effectively reversing uncontrolled inventory growth with data-driven actions.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Python', 'Power BI', 'Inventory', '$1.2M'].map((tag) => (
+                    <span key={tag} className="rounded-full border border-black/10 px-3 py-1 text-[11px] text-black/50">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={250}>
+            <div className="group overflow-hidden rounded-[32px] border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div className="h-56 bg-gradient-to-br from-orange-500 via-rose-500 to-violet-500 p-6">
+                <div className="h-full rounded-[28px] bg-black/5 border border-white/10" />
+              </div>
+              <div className="p-6">
+                <p className="text-xs uppercase tracking-[0.15em] text-black/40 mb-3">Machine Downtime Analysis</p>
+                <h3 className="text-2xl font-semibold text-black mb-3">MTTR & sensor data pipelines</h3>
+                <p className="text-sm text-black/50 leading-relaxed mb-5">
+                  Engineered automated data pipelines to ingest shop-floor sensor data, providing same-day decision-making capabilities and drastically cutting root-cause investigation time.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Sensor Data', 'MTTR', 'Data Pipeline', 'Automation'].map((tag) => (
+                    <span key={tag} className="rounded-full border border-black/10 px-3 py-1 text-[11px] text-black/50">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );
