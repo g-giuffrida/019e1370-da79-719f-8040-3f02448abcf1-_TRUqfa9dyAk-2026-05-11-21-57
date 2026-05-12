@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="NOODP" name="ROBOTS">
+    <meta content="user-scalable=1, initial-scale=1.0" name="viewport">
+    <title>Bad request</title>
+    <style>
+        html {
+            font-family: Verdana, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .middle {
+            width: 100%;
+            max-width: 1200px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+        .content {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .header {
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+        }
+        .bar {
+            height: 1rem;
+            background-color: #DC002D;
+        }
+    </style>
+</head>
+<body>
+    <div class="header middle">
+        <img src="/_definition/shared/images/logo--en.svg" alt="University of Groningen">
+    </div>
+    <div class="bar"></div>
+    <div class="content middle">
+        <h1>Bad request</h1>
+        <p>
+            An invalid web request was received.
+        </p>
+    </div>
+</body>
+</html>
