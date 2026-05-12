@@ -64,7 +64,7 @@ function SkillGroup({ title, skills, delay = 0 }: { title: string; skills: strin
           {skills.map((skill) => (
             <span
               key={skill}
-              className="px-3 py-1.5 text-sm text-black/70 border border-black/10 hover:border-black/30 transition-colors"
+              className="text-sm text-black/70"
             >
               {skill}
             </span>
@@ -77,13 +77,13 @@ function SkillGroup({ title, skills, delay = 0 }: { title: string; skills: strin
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-white py-24 border-t border-black/10">
+    <section id="skills" className="bg-white py-24 border-t border-black/5">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <FadeIn>
           <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-3">
-            05 — Skills
+            04 — Skills
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-16">
+          <h2 className="text-3xl font-bold text-black mb-16">
             Capabilities
           </h2>
         </FadeIn>
@@ -101,7 +101,7 @@ export default function Skills() {
                 {opsSkills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1.5 text-sm text-black/70 border border-black/10 hover:border-black/30 transition-colors"
+                    className="text-sm text-black/70"
                   >
                     {skill}
                   </span>
@@ -115,11 +115,11 @@ export default function Skills() {
               <p className="text-xs uppercase tracking-[0.2em] text-black/40 mb-5">
                 Languages
               </p>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {languages.map((lang) => (
                   <div
                     key={lang.name}
-                    className="flex items-center justify-between py-2 border-b border-black/5"
+                    className="flex items-center justify-between"
                   >
                     <span className="text-sm text-black">{lang.name}</span>
                     <span className="text-xs uppercase tracking-[0.1em] text-black/40">
