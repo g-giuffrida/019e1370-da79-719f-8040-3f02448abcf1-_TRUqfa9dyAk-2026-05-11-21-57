@@ -66,7 +66,7 @@ const languages = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-white py-24 border-t border-black/[0.06]">
+    <section id="skills" className="bg-white py-24 border-t border-black">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.25em] text-black/30 mb-3">
@@ -100,7 +100,7 @@ export default function Skills() {
         </div>
 
         <FadeIn delay={300}>
-          <div className="pt-12 border-t border-black/[0.06]">
+          <div className="pt-12 border-t border-black">
             <p className="text-[10px] uppercase tracking-[0.22em] text-black/30 mb-6">
               Languages
             </p>

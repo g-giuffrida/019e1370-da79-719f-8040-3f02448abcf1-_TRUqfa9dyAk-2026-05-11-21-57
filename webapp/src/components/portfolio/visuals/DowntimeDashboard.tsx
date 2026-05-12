@@ -1,4 +1,9 @@
+import { useState } from "react";
+
 export default function DowntimeDashboard() {
+  const [hoveredPoint, setHoveredPoint] = useState<number | null>(null);
+  const [hoveredEvent, setHoveredEvent] = useState<number | null>(null);
+
   const linePoints: [number, number][] = [
     [30, 210], [56, 205], [82, 213], [108, 200], [134, 195],
     [160, 198], [186, 187], [212, 182], [238, 177], [264, 171],
@@ -85,8 +90,30 @@ export default function DowntimeDashboard() {
         strokeLinejoin="round"
       />
       {linePoints.map(([x, y], i) => (
-        <circle key={i} cx={x} cy={y} r="2.5" fill="#3b82f6" stroke="#0d1117" strokeWidth="1.5" />
+        <circle
+          key={i}
+          cx={x}
+          cy={y}
+          r={hoveredPoint === i ? 4.5 : 2.5}
+          fill={hoveredPoint === i ? "#ffffff" : "#3b82f6"}
+          stroke="#0d1117"
+          strokeWidth="1.5"
+          style={{ cursor: "pointer" }}
+          onMouseEnter={() => setHoveredPoint(i)}
+          onMouseLeave={() => setHoveredPoint(null)}
+        >
+          <title>Downtime point {i + 1}</title>
+        </circle>
       ))}
+
+      {hoveredPoint !== null ? (
+        <g>
+          <rect x={linePoints[hoveredPoint][0] + 12} y={linePoints[hoveredPoint][1] - 22} width="88" height="18" rx="3" fill="#0f172a" opacity="0.95" />
+          <text x={linePoints[hoveredPoint][0] + 56} y={linePoints[hoveredPoint][1] - 8} fill="#fff" fontSize="6.5" textAnchor="middle">
+            Point {hoveredPoint + 1}
+          </text>
+        </g>
+      ) : null}
 
       {/* Bar chart */}
       <rect x="314" y="116" width="154" height="104" rx="2" fill="#161b22" stroke="#21262d" strokeWidth="0.75" />
@@ -106,7 +133,20 @@ export default function DowntimeDashboard() {
       <line x1="12" y1="250" x2="468" y2="250" stroke="#21262d" strokeWidth="0.75" />
 
       {events.map((e, i) => (
-        <g key={i}>
+        <g
+          key={i}
+          style={{ cursor: "pointer" }}
+          onMouseEnter={() => setHoveredEvent(i)}
+          onMouseLeave={() => setHoveredEvent(null)}
+        >
+          <rect
+            x="12"
+            y={257 + i * 18}
+            width="456"
+            height="18"
+            rx="2"
+            fill={hoveredEvent === i ? "rgba(255,255,255,0.08)" : "transparent"}
+          />
           <text x="22" y={265 + i * 18} fill="#8b949e" fontSize="7.5">{e.time}</text>
           <text x="66" y={265 + i * 18} fill="#c9d1d9" fontSize="7.5">{e.unit}</text>
           <text x="116" y={265 + i * 18} fill="#c9d1d9" fontSize="7.5">{e.component}</text>

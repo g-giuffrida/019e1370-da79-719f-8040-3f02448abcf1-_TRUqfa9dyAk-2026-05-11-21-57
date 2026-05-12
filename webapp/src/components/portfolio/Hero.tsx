@@ -29,11 +29,6 @@ const education = [
   },
 ];
 
-const stats = [
-  { value: "5+", label: "Years Experience" },
-  { value: "2", label: "Industry Sectors" },
-  { value: "4", label: "Fluent Languages" },
-];
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -114,14 +109,14 @@ export default function Hero() {
               <img
                 src="/giulio.jpg"
                 alt="Giulio Giuffrida"
-                className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top grayscale"
+                className="w-56 h-56 lg:w-64 lg:h-64 object-cover object-top rounded-[14px]"
               />
             </div>
           </div>
         </div>
 
         {/* Experience + Education logos */}
-        <div style={{ transitionDelay: "400ms" }} className={`${fade(400)} mt-24 pt-12 border-t border-black/[0.06]`}>
+        <div style={{ transitionDelay: "400ms" }} className={`${fade(400)} mt-24 pt-12 border-t border-black`}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-12">
             <div>
               <p className="text-[10px] uppercase tracking-[0.25em] text-black/30 mb-9">Experience</p>
@@ -129,7 +124,7 @@ export default function Hero() {
                 {companies.map((item) => (
                   <div key={item.alt} className="flex items-start gap-5">
                     <div className="w-[88px] flex-shrink-0 pt-0.5">
-                      <img src={item.logo} alt={item.alt} className="h-6 object-contain object-left" />
+                      <img src={item.logo} alt={item.alt} className="h-9 object-contain object-left" />
                     </div>
                     <p className="text-sm text-black/50 leading-relaxed font-light">{item.description}</p>
                   </div>
@@ -143,7 +138,7 @@ export default function Hero() {
                 {education.map((item) => (
                   <div key={item.alt} className="flex items-start gap-5">
                     <div className="w-[88px] flex-shrink-0 pt-0.5">
-                      <img src={item.logo} alt={item.alt} className="h-6 object-contain object-left" />
+                      <img src={item.logo} alt={item.alt} className="h-9 object-contain object-left" />
                     </div>
                     <p className="text-sm text-black/50 leading-relaxed font-light">{item.description}</p>
                   </div>
@@ -153,17 +148,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Stats */}
-        <div style={{ transitionDelay: "600ms" }} className={`${fade(600)} mt-16 pt-10 border-t border-black/[0.06]`}>
-          <div className="grid grid-cols-3 gap-8 max-w-xs">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <div className="text-2xl font-bold text-black mb-1.5">{s.value}</div>
-                <div className="text-[10px] uppercase tracking-[0.14em] text-black/35">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
 
       </div>
     </section>

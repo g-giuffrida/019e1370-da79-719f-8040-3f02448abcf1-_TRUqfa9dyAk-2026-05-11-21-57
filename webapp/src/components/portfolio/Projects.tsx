@@ -48,7 +48,10 @@ const projects: Project[] = [
     solution:
       "Designed an orchestrated multi-agent pipeline: specialized AI agents process sensor data, classify failure types, generate structured reports, and fire alerts. Reduced analysis from days to hours.",
     tech: ["Python", "Azure OpenAI", "LangChain", "Databricks", "Power BI"],
-    visual: "ai-graph",
+    visual: "image",
+    imageUrl:
+      "https://media.licdn.com/dms/image/v2/D4D12AQGOXn85Pt0cmQ/article-cover_image-shrink_720_1280/B4DZZjsb1ZG8AI-/0/1745429326633?e=2147483647&v=beta&t=w-2Oewj5G-SebGMeVJWAq-J2ZPGAQ6QGFFyGrsmSF3Q",
+    imageAlt: "Multi-agent AI orchestration illustration",
   },
   {
     id: "03",
@@ -70,7 +73,10 @@ const projects: Project[] = [
     solution:
       "Built a Python tool that calculates optimal order quantities from safety stock parameters, supplier lead times, and real demand signals — replacing spreadsheets. Delivered 26% average reduction in aged stock.",
     tech: ["Python", "pandas", "Power BI", "SAP", "Excel"],
-    visual: "inventory",
+    visual: "image",
+    imageUrl:
+      "https://images.unsplash.com/photo-1434959299919-ab60908e4e47?w=800&q=80",
+    imageAlt: "Warehouse inventory optimization",
   },
   {
     id: "05",
@@ -83,8 +89,8 @@ const projects: Project[] = [
     tech: ["SAP", "S&OP", "Capacity Planning", "Cross-functional Coordination"],
     visual: "image",
     imageUrl:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80",
-    imageAlt: "Toyota Aygo X",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FWLDy1sXRVjngYvxocXoWOmSEn-t4HZy3g&s",
+    imageAlt: "Toyota Aygo X production launch",
   },
 ];
 
@@ -94,7 +100,7 @@ function ProjectVisual({ project }: { project: Project }) {
       <img
         src={project.imageUrl}
         alt={project.imageAlt}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover rounded-[14px]"
         loading="lazy"
       />
     );
@@ -120,7 +126,7 @@ export default function Projects() {
         <div className="space-y-0">
           {projects.map((project, index) => (
             <FadeIn key={project.id} delay={index * 80}>
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-0 py-16 border-b border-black/[0.06] items-start">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-0 py-16 border-b border-black items-start">
 
                 {/* Text side */}
                 <div className="md:col-span-5 md:pr-12 mb-10 md:mb-0">
@@ -170,7 +176,7 @@ export default function Projects() {
                 </div>
 
                 {/* Visual side */}
-                <div className="md:col-span-7 overflow-hidden bg-[#f5f5f5]" style={{ minHeight: "300px" }}>
+                <div className="md:col-span-7 overflow-hidden bg-[#f5f5f5] rounded-[14px]" style={{ minHeight: "300px" }}>
                   <div className="w-full h-full" style={{ aspectRatio: "16/10" }}>
                     <ProjectVisual project={project} />
                   </div>

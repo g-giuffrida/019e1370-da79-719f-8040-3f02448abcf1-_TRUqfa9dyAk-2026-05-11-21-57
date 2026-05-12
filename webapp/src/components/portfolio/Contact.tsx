@@ -3,7 +3,7 @@ import FadeIn from "./FadeIn";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-white py-24 border-t border-black/[0.06]">
+    <section id="contact" className="bg-white py-24 border-t border-black">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
         <FadeIn>
           <p className="text-[10px] uppercase tracking-[0.25em] text-black/30 mb-3">
@@ -64,7 +64,7 @@ export default function Contact() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="flex justify-between items-baseline border-b border-black/[0.06] pb-4"
+                    className="flex justify-between items-baseline border-b border-black pb-4"
                   >
                     <span className="text-[10px] uppercase tracking-[0.18em] text-black/30">
                       {item.label}
@@ -79,7 +79,7 @@ export default function Contact() {
       </div>
 
       {/* Footer */}
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 mt-20 pt-8 border-t border-black/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 mt-20 pt-8 border-t border-black flex flex-col sm:flex-row items-center justify-between gap-3">
         <span className="text-[10px] text-black/25 uppercase tracking-[0.14em]">
           Giulio Giuffrida — 2026
         </span>
