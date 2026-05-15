@@ -25,12 +25,12 @@ export default function Hero() {
 
         {/* Photo + experience grid — photo bottom aligns with text bottom */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-          <FadeIn delay={300} className="md:col-span-5 lg:col-span-4 flex flex-col justify-end">
-            <div className="aspect-[4/5] w-full max-w-[420px] overflow-hidden">
+          <FadeIn delay={300} className="md:col-span-5 lg:col-span-4">
+            <div className="w-full max-w-[420px] overflow-hidden">
               <img
                 src={hero.photo}
                 alt={hero.photoAlt}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-auto object-cover object-center"
               />
             </div>
           </FadeIn>
