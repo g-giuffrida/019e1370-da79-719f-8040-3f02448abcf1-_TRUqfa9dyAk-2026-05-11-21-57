@@ -1,24 +1,40 @@
-import { useInView } from "@/hooks/useInView";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef, useState, ReactNode } from "react";
 
 interface FadeInProps {
-  children: React.ReactNode;
-  className?: string;
+  children: ReactNode;
   delay?: number;
+  className?: string;
 }
 
-export default function FadeIn({ children, className, delay = 0 }: FadeInProps) {
-  const { ref, inView } = useInView({ threshold: 0.1 });
+export default function FadeIn({ children, delay = 0, className = "" }: FadeInProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <div
-      ref={ref as React.RefObject<HTMLDivElement>}
-      className={cn(
-        "transition-all duration-700 ease-out",
-        inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
-        className
-      )}
-      style={{ transitionDelay: `${delay}ms` }}
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(12px)",
+        transition: `opacity 700ms ease-out ${delay}ms, transform 700ms ease-out ${delay}ms`,
+      }}
     >
       {children}
     </div>
