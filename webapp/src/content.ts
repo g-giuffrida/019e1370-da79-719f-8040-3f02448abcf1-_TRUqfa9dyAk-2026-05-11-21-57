@@ -73,10 +73,12 @@ export const content = {
   projects: {
     label: "Selected Work",
     heading: "Five projects across operations, data, and AI.",
+    note: "Note: numbers, names, and screenshots shown are illustrative — exact figures and identifying details are altered or omitted due to confidentiality.",
     items: [
       {
         num: "01",
         title: "Wandr.ch",
+        link: "https://www.wandr.ch",
         description:
           "A Swiss hiking discovery app built from scratch. Interactive maps, elevation profiles, real-time public-transport planning to trailheads, and AI-assisted hike search.",
         stack: "React · Tailwind · MapLibre · Recharts · Bun/Hono · SQLite · OSM · SBB",

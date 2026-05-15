@@ -26,6 +26,11 @@ export default function Projects() {
             <h2 className="text-[32px] md:text-[40px] font-semibold text-ink leading-[1.2] tracking-tight">
               {projects.heading}
             </h2>
+            {"note" in projects && projects.note ? (
+              <p className="mt-6 text-[12px] leading-[1.7] text-ink-soft italic border-l-2 border-line pl-4">
+                {projects.note as string}
+              </p>
+            ) : null}
           </div>
         </FadeIn>
 
@@ -37,7 +42,19 @@ export default function Projects() {
                   <div className="lg:sticky lg:top-28 space-y-5">
                     <p className="label-caps">Project · {p.num}</p>
                     <h3 className="text-[26px] md:text-[28px] font-semibold text-ink leading-[1.25] tracking-tight">
-                      {p.title}
+                      {"link" in p && p.link ? (
+                        <a
+                          href={p.link as string}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:underline underline-offset-4 decoration-2 inline-flex items-center gap-2"
+                        >
+                          {p.title}
+                          <span className="text-ink-soft text-[18px] font-normal">↗</span>
+                        </a>
+                      ) : (
+                        p.title
+                      )}
                     </h3>
                     <p className="text-[15px] leading-[1.8] text-ink-soft">{p.description}</p>
                     {p.stack ? (
