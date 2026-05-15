@@ -13,7 +13,7 @@ export default function AgentGraphVisual() {
   ];
 
   return (
-    <div className="w-full bg-cream border border-line font-sans"
+    <div className="w-full bg-cream border border-line/60 font-sans"
          style={{ fontFamily: "'Open Sans', sans-serif" }}>
       {/* Window chrome */}
       <div className="flex items-center justify-between border-b border-line px-4 py-2.5 bg-cream-hover/60">
