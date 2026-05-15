@@ -47,9 +47,17 @@ export default function Projects() {
                           href={p.link as string}
                           target="_blank"
                           rel="noreferrer"
-                          className="hover:underline underline-offset-4 decoration-2 inline-flex items-center gap-2"
+                          className="hover:underline underline-offset-4 decoration-2 inline-flex items-center gap-3 flex-wrap"
                         >
-                          {p.title}
+                          {p.num === "01" ? (
+                            <img
+                              src="/wandr-logo.png"
+                              alt=""
+                              className="h-8 md:h-9 w-auto"
+                              style={{ mixBlendMode: "multiply" }}
+                            />
+                          ) : null}
+                          <span>{p.title}</span>
                           <span className="text-ink-soft text-[18px] font-normal">↗</span>
                         </a>
                       ) : (

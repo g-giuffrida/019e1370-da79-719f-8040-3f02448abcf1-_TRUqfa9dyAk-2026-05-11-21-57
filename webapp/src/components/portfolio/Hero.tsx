@@ -23,8 +23,8 @@ export default function Hero() {
           </div>
         </FadeIn>
 
-        {/* Photo + experience grid — top-aligned, equal rhythm */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+        {/* Photo + experience grid — photo bottom aligns with last logo descriptor */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-end">
           <FadeIn delay={300} className="md:col-span-5 lg:col-span-4">
             <div className="w-full max-w-[400px] aspect-[4/5] overflow-hidden">
               <img
