@@ -73,7 +73,7 @@ export const content = {
   projects: {
     label: "Selected Work",
     heading: "Five projects across operations, data, and AI.",
-    note: "Note: numbers, names, and screenshots shown are illustrative — exact figures and identifying details are altered or omitted due to confidentiality.",
+    note: "Note: numbers, names, and screenshots shown are illustrative, exact figures and identifying details are omitted due to confidentiality.",
     items: [
       {
         num: "01",
@@ -88,7 +88,7 @@ export const content = {
         title: "Multi-Agent AI System for Operational Monitoring",
         description:
           "Designing a multi-agent system that orchestrates specialized agents covering downtime, run hours, availability, and performance. Agents communicate through a central orchestrator and generate automated alerts and insights across the equipment fleet.",
-        stack: "Python · Azure OpenAI · Databricks",
+        stack: "Python · Copilot Studio · Databricks",
       },
       {
         num: "03",
@@ -109,7 +109,7 @@ export const content = {
         title: "Demand-Driven Inventory Optimization",
         description:
           "A Python tool that computes optimal parts order quantities from safety stock, lead times, and demand forecasts. Improved parts availability while reducing excess inventory across multiple production lines.",
-        stack: "Python · SAP · Demand forecasting",
+        stack: "Python · Inventory Management · Demand forecasting",
       },
     ],
   },
@@ -119,7 +119,7 @@ export const content = {
   // -----------------------------
   skills: {
     label: "Skills",
-    heading: "Toolkit across AI, data, and operations.",
+    heading: "Skills across AI, data, and operations.",
     columns: [
       {
         title: "AI & Machine Learning",
@@ -127,9 +127,9 @@ export const content = {
           "Azure OpenAI",
           "LangChain",
           "AI Agents",
-          "RAG",
+          "Claude Code",
           "Prompt Engineering",
-          "Vector Databases",
+          "Databricks AI Functions",
           "LLM Integration",
           "Sensor Data AI Processing",
           "Copilot Studio",
