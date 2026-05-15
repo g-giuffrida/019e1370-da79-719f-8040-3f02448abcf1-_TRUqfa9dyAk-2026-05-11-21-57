@@ -23,10 +23,10 @@ export default function Hero() {
           </div>
         </FadeIn>
 
-        {/* Photo + experience grid — photo bottom aligns with text bottom */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-end">
+        {/* Photo + experience grid — top-aligned, equal rhythm */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
           <FadeIn delay={300} className="md:col-span-5 lg:col-span-4">
-            <div className="w-full max-w-[420px] aspect-[4/5] overflow-hidden">
+            <div className="w-full max-w-[400px] aspect-[4/5] overflow-hidden">
               <img
                 src={hero.photo}
                 alt={hero.photoAlt}
@@ -36,23 +36,21 @@ export default function Hero() {
           </FadeIn>
 
           <FadeIn delay={400} className="md:col-span-7 lg:col-span-8">
-            <div className="md:pt-2">
-              <p className="label-caps mb-8">{hero.experienceLabel}</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
-                {hero.logos.map((l) => (
-                  <div key={l.alt} className="flex flex-col gap-4">
-                    <div className="h-12 flex items-center">
-                      <img
-                        src={l.src}
-                        alt={l.alt}
-                        className="max-h-12 max-w-[170px] object-contain object-left"
-                        loading="lazy"
-                      />
-                    </div>
-                    <p className="text-[13px] leading-[1.65] text-ink-soft">{l.descriptor}</p>
+            <p className="label-caps mb-10">{hero.experienceLabel}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+              {hero.logos.map((l) => (
+                <div key={l.alt} className="flex flex-col gap-4">
+                  <div className="h-12 flex items-center">
+                    <img
+                      src={l.src}
+                      alt={l.alt}
+                      className="max-h-12 max-w-[170px] object-contain object-left"
+                      loading="lazy"
+                    />
                   </div>
-                ))}
-              </div>
+                  <p className="text-[13px] leading-[1.65] text-ink-soft">{l.descriptor}</p>
+                </div>
+              ))}
             </div>
           </FadeIn>
         </div>

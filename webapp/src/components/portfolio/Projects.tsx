@@ -34,12 +34,12 @@ export default function Projects() {
           </div>
         </FadeIn>
 
-        <div className="space-y-24 md:space-y-36">
+        <div className="space-y-28 md:space-y-40">
           {projects.items.map((p) => (
             <FadeIn key={p.num}>
-              <article className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+              <article className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
                 <div className="lg:col-span-4">
-                  <div className="lg:sticky lg:top-28 space-y-5">
+                  <div className="space-y-5">
                     <p className="label-caps">Project · {p.num}</p>
                     <h3 className="text-[26px] md:text-[28px] font-semibold text-ink leading-[1.25] tracking-tight">
                       {"link" in p && p.link ? (
@@ -58,13 +58,15 @@ export default function Projects() {
                     </h3>
                     <p className="text-[15px] leading-[1.8] text-ink-soft">{p.description}</p>
                     {p.stack ? (
-                      <p className="text-[12px] text-ink-soft pt-2 border-t border-line/70 leading-relaxed">
+                      <p className="text-[12px] text-ink-soft pt-3 border-t border-line/70 leading-relaxed">
                         {p.stack}
                       </p>
                     ) : null}
                   </div>
                 </div>
-                <div className="lg:col-span-8">{visuals[p.num]}</div>
+                <div className="lg:col-span-8 flex items-center">
+                  <div className="w-full">{visuals[p.num]}</div>
+                </div>
               </article>
             </FadeIn>
           ))}
