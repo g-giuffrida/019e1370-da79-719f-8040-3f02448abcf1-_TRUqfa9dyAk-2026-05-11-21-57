@@ -1,88 +1,113 @@
 export default function AgentGraphVisual() {
-  const cx = 400;
-  const cy = 180;
-  const r = 110;
-
   const agents = [
-    { label: "Downtime Agent", angle: -90 },
-    { label: "Run Hours Agent", angle: 0 },
-    { label: "Performance Agent", angle: 90 },
-    { label: "Availability Agent", angle: 180 },
-  ].map((a) => ({
-    ...a,
-    x: cx + r * Math.cos((a.angle * Math.PI) / 180),
-    y: cy + r * Math.sin((a.angle * Math.PI) / 180),
-  }));
+    { name: "Downtime", status: "active", task: "Investigating XY-04 thermal anomaly" },
+    { name: "Run Hours", status: "idle", task: "Last sync 4 min ago" },
+    { name: "Performance", status: "active", task: "Computing OEE for Plant 3" },
+    { name: "Availability", status: "active", task: "Streaming uptime across 142 units" },
+  ];
+
+  const alerts = [
+    { time: "09:42", severity: "Critical", body: "XY-04 · Thermal sensor failure · 2.3 hrs downtime" },
+    { time: "08:15", severity: "Warning", body: "AB-12 · Run hours exceeded service interval" },
+    { time: "07:01", severity: "Info", body: "Plant 2 · Availability up 3.1% week over week" },
+  ];
 
   return (
-    <svg
-      viewBox="0 0 800 460"
-      className="w-full h-auto"
-      style={{ fontFamily: "'Open Sans', sans-serif" }}
-      role="img"
-      aria-label="Multi-agent AI system diagram"
-    >
-      <rect width="800" height="460" fill="#FAF8F3" />
+    <div className="w-full bg-cream border border-line font-sans"
+         style={{ fontFamily: "'Open Sans', sans-serif" }}>
+      {/* Window chrome */}
+      <div className="flex items-center justify-between border-b border-line px-4 py-2.5 bg-cream-hover/60">
+        <div className="flex items-center gap-2">
+          <span className="block w-2.5 h-2.5 rounded-full bg-line" />
+          <span className="block w-2.5 h-2.5 rounded-full bg-line" />
+          <span className="block w-2.5 h-2.5 rounded-full bg-line" />
+        </div>
+        <p className="text-[10px] tracking-[0.2em] uppercase text-ink-soft">
+          Operations Console · Climeworks
+        </p>
+        <span className="text-[10px] text-ink-soft">v 0.4</span>
+      </div>
 
-      <text x="40" y="40" fill="#666666" fontSize="10" letterSpacing="2">
-        MULTI-AGENT SYSTEM · CLIMEWORKS
-      </text>
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr]">
+        {/* Left: orchestrator + agents */}
+        <div className="p-5 md:p-6 border-b md:border-b-0 md:border-r border-line">
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-[10px] tracking-[0.18em] uppercase text-ink-soft">Orchestrator</p>
+            <div className="flex items-center gap-1.5">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-ink opacity-40 animate-ping" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-ink" />
+              </span>
+              <span className="text-[11px] text-ink">Live</span>
+            </div>
+          </div>
 
-      {/* connecting lines */}
-      <g stroke="#D0D0D0" strokeWidth="1">
-        {agents.map((a, i) => (
-          <line key={i} x1={cx} y1={cy} x2={a.x} y2={a.y} />
-        ))}
-      </g>
+          {/* Big console node */}
+          <div className="border border-ink p-4 mb-5">
+            <p className="text-[11px] text-ink-soft mb-1">Active routing</p>
+            <p className="text-[15px] text-ink font-semibold leading-tight mb-2">
+              4 agents · 18 messages/min
+            </p>
+            <div className="h-1 bg-cream-hover overflow-hidden">
+              <div className="h-full bg-ink" style={{ width: "62%" }} />
+            </div>
+          </div>
 
-      {/* agent nodes */}
-      {agents.map((a, i) => (
-        <g key={i}>
-          <circle cx={a.x} cy={a.y} r="22" fill="#FAF8F3" stroke="#2C2C2C" strokeWidth="1" />
-          <text
-            x={a.x}
-            y={
-              a.angle === -90
-                ? a.y - 36
-                : a.angle === 90
-                ? a.y + 42
-                : a.y + 4
-            }
-            fill="#2C2C2C"
-            fontSize="12"
-            textAnchor={a.angle === 0 ? "start" : a.angle === 180 ? "end" : "middle"}
-            dx={a.angle === 0 ? 30 : a.angle === 180 ? -30 : 0}
-            dy={a.angle === 0 || a.angle === 180 ? 0 : 0}
-          >
-            {a.label}
-          </text>
-        </g>
-      ))}
+          <p className="text-[10px] tracking-[0.18em] uppercase text-ink-soft mb-3">Agents</p>
+          <ul className="space-y-2">
+            {agents.map((a) => (
+              <li key={a.name} className="flex items-start gap-3 py-2 border-t border-line/70">
+                <span
+                  className={`mt-1.5 block w-1.5 h-1.5 rounded-full ${
+                    a.status === "active" ? "bg-ink" : "bg-line"
+                  }`}
+                />
+                <div className="flex-1 min-w-0">
+                  <p className="text-[13px] text-ink font-medium">{a.name} Agent</p>
+                  <p className="text-[11px] text-ink-soft truncate">{a.task}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      {/* orchestrator */}
-      <circle cx={cx} cy={cy} r="34" fill="#2C2C2C" />
-      <circle cx={cx} cy={cy} r="44" fill="none" stroke="#2C2C2C" strokeWidth="1" opacity="0.25">
-        <animate attributeName="r" values="44;52;44" dur="2.5s" repeatCount="indefinite" />
-        <animate attributeName="opacity" values="0.25;0;0.25" dur="2.5s" repeatCount="indefinite" />
-      </circle>
-      <text x={cx} y={cy + 4} fill="#FAF8F3" fontSize="11" textAnchor="middle" letterSpacing="1">
-        ORCHESTRATOR
-      </text>
+        {/* Right: alert feed */}
+        <div className="p-5 md:p-6">
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-[10px] tracking-[0.18em] uppercase text-ink-soft">Alert Feed</p>
+            <p className="text-[10px] text-ink-soft">Today · 14:08 CET</p>
+          </div>
 
-      {/* alert card */}
-      <g>
-        <rect x="120" y="340" width="560" height="92" fill="#FAF8F3" stroke="#D0D0D0" />
-        <rect x="120" y="340" width="4" height="92" fill="#2C2C2C" />
-        <text x="140" y="364" fill="#666666" fontSize="9" letterSpacing="2">
-          ALERT · CRITICAL
-        </text>
-        <text x="140" y="388" fill="#2C2C2C" fontSize="14" fontWeight="600">
-          Equipment XY-04 — Thermal Sensor Failure
-        </text>
-        <text x="140" y="412" fill="#666666" fontSize="12">
-          Downtime: 2.3 hrs   ·   Root cause: thermal sensor failure   ·   Confidence: 94%
-        </text>
-      </g>
-    </svg>
+          <ul className="space-y-3">
+            {alerts.map((al, i) => (
+              <li key={i} className="border border-line p-3.5">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[10px] tracking-[0.18em] uppercase text-ink-soft">
+                    {al.severity}
+                  </span>
+                  <span className="text-[10px] text-ink-soft">{al.time}</span>
+                </div>
+                <p className="text-[13px] text-ink leading-snug">{al.body}</p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-5 pt-4 border-t border-line/70 grid grid-cols-3 gap-3">
+            <div>
+              <p className="text-[10px] tracking-[0.15em] uppercase text-ink-soft">Resolved</p>
+              <p className="text-[18px] font-semibold text-ink">42</p>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.15em] uppercase text-ink-soft">Open</p>
+              <p className="text-[18px] font-semibold text-ink">3</p>
+            </div>
+            <div>
+              <p className="text-[10px] tracking-[0.15em] uppercase text-ink-soft">Avg latency</p>
+              <p className="text-[18px] font-semibold text-ink">11s</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
