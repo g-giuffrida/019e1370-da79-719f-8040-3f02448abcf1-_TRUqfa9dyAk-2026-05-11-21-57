@@ -39,7 +39,7 @@ export const content = {
       {
         src: "/logo-climeworks.png",
         alt: "Climeworks",
-        descriptor: "AI-powered operations and downtime analytics",
+        descriptor: "Operations and Plant Process analytics with Agentic AI, Databricks, Power BI",
       },
       {
         src: "/logo-toyota.png",
@@ -54,7 +54,7 @@ export const content = {
       {
         src: "/logo-microsoft.png",
         alt: "Microsoft",
-        descriptor: "Certificate · Generative AI for Data Analysis",
+        descriptor: "Professional Certificate · Generative AI for Data Analysis",
       },
     ],
   },
@@ -64,7 +64,7 @@ export const content = {
   // -----------------------------
   about: {
     label: "About",
-    body: "Operations analyst with 5 years of experience building data systems in automotive and clean tech. Now focused on AI and analytics.",
+    body: "Operations Data Analyst with 5 years of experience in production planning and operational analytics within the automotive and clean energy sectors. I combine hands-on operations ownership, having managed production planning for Toyota Yaris, Aygo X, and Climeworks DAC systems, with strong data engineering and GenAI skills.",
   },
 
   // -----------------------------
@@ -85,7 +85,7 @@ export const content = {
         num: "02",
         title: "Multi-Agent AI System for Operational Monitoring",
         description:
-          "A multi-agent system that orchestrates specialized agents covering downtime, run hours, availability, and performance. Agents communicate through a central orchestrator and generate automated alerts across the equipment fleet.",
+          "Designing a multi-agent system that orchestrates specialized agents covering downtime, run hours, availability, and performance. Agents communicate through a central orchestrator and generate automated alerts and insights across the equipment fleet.",
         stack: "Python · Azure OpenAI · Databricks",
       },
       {
@@ -130,7 +130,7 @@ export const content = {
           "Vector Databases",
           "LLM Integration",
           "Sensor Data AI Processing",
-          "Azure AI Studio",
+          "Copilot Studio",
           "Generative AI for Data Analysis",
         ],
       },

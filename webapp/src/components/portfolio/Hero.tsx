@@ -23,9 +23,9 @@ export default function Hero() {
           </div>
         </FadeIn>
 
-        {/* Photo + experience grid — aligned on a clean baseline */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
-          <FadeIn delay={300} className="md:col-span-5 lg:col-span-4">
+        {/* Photo + experience grid — photo bottom aligns with text bottom */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
+          <FadeIn delay={300} className="md:col-span-5 lg:col-span-4 flex flex-col justify-end">
             <div className="aspect-[4/5] w-full max-w-[420px] overflow-hidden">
               <img
                 src={hero.photo}
