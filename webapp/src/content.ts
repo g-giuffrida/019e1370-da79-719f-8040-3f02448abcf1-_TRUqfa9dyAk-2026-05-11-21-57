@@ -72,7 +72,7 @@ export const content = {
   // -----------------------------
   projects: {
     label: "Selected Work",
-    heading: "Five projects across operations, data, and AI.",
+    heading: "Five samples of my work across AI, data, and operations.",
     note: "Note: numbers, names, and screenshots shown are illustrative, exact figures and identifying details are omitted due to confidentiality.",
     items: [
       {
@@ -186,7 +186,7 @@ export const content = {
   contact: {
     label: "Contact",
     heading: "Open to conversations on operations, data, and AI.",
-    body: "Based in Zurich. Swiss B permit valid until January 2029. Reach out by email or LinkedIn.",
+    body: "Based in Zurich with a Swiss B permit. Reach out by email or LinkedIn.",
     links: [
       { label: "Email", value: "g.giuffrida.nl@gmail.com", href: "mailto:g.giuffrida.nl@gmail.com", arrow: "→" },
       { label: "Phone", value: "+41 76 270 53 62", href: "tel:+41762705362", arrow: "→" },
