@@ -1,9 +1,19 @@
+import { toast } from "sonner";
 import FadeIn from "./FadeIn";
 import { content } from "@/content";
 
 export default function Contact() {
   const { contact } = content;
   const year = new Date().getFullYear();
+
+  const copyValue = (text: string, label: string) => {
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(
+        () => toast.success(`${label} copied`, { description: text }),
+        () => toast.error(`Couldn't copy ${label.toLowerCase()}`),
+      );
+    }
+  };
   return (
     <section id="contact" className="py-20 md:py-32 border-t border-line/70">
       <div className="max-w-[1200px] mx-auto px-6 md:px-12">
@@ -16,12 +26,15 @@ export default function Contact() {
             <p className="text-[16px] leading-[1.8] text-ink-soft max-w-xl mb-12">{contact.body}</p>
 
             <div className="space-y-2">
-              {contact.links.map((l, i) => (
+              {contact.links.map((l, i) => {
+                const isCopyable = l.label === "Email" || l.label === "Phone";
+                return (
                 <a
                   key={l.label}
                   href={l.href}
                   target={l.href.startsWith("http") ? "_blank" : undefined}
                   rel={l.href.startsWith("http") ? "noreferrer" : undefined}
+                  onClick={isCopyable ? () => copyValue(l.value, l.label === "Phone" ? "Phone number" : l.label) : undefined}
                   className={`group flex items-center justify-between py-5 border-t border-line transition-colors hover:bg-cream-hover px-2 -mx-2 ${
                     i === contact.links.length - 1 ? "border-b" : ""
                   }`}
@@ -34,7 +47,8 @@ export default function Contact() {
                     {l.arrow}
                   </span>
                 </a>
-              ))}
+                );
+              })}
             </div>
           </div>
         </FadeIn>

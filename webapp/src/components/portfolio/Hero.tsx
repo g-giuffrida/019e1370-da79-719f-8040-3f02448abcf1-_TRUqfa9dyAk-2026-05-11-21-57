@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Phone } from "lucide-react";
+import { toast } from "sonner";
 import FadeIn from "./FadeIn";
 import Typewriter from "./Typewriter";
 import { content } from "@/content";
@@ -8,6 +9,15 @@ export default function Hero() {
   const emailLink = contact.links.find((l) => l.label === "Email");
   const phoneLink = contact.links.find((l) => l.label === "Phone");
   const linkedinLink = contact.links.find((l) => l.label === "LinkedIn");
+
+  const copyAndContinue = (text: string, label: string) => {
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(
+        () => toast.success(`${label} copied`, { description: text }),
+        () => toast.error(`Couldn't copy ${label.toLowerCase()}`),
+      );
+    }
+  };
 
   return (
     <section id="top" className="pt-28 md:pt-36 pb-20 md:pb-28">
@@ -29,6 +39,7 @@ export default function Hero() {
                 <a
                   href={emailLink.href}
                   aria-label="Email"
+                  onClick={() => copyAndContinue(emailLink.value, "Email")}
                   className="text-ink-soft hover:text-ink transition-colors"
                 >
                   <Mail className="w-5 h-5" strokeWidth={1.5} />
@@ -49,6 +60,7 @@ export default function Hero() {
                 <a
                   href={phoneLink.href}
                   aria-label="Phone"
+                  onClick={() => copyAndContinue(phoneLink.value, "Phone number")}
                   className="text-ink-soft hover:text-ink transition-colors"
                 >
                   <Phone className="w-5 h-5" strokeWidth={1.5} />

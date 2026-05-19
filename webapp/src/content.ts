@@ -194,7 +194,7 @@ export const content = {
     links: [
       { label: "Email", value: "g.giuffrida.nl@gmail.com", href: "mailto:g.giuffrida.nl@gmail.com", arrow: "→" },
       { label: "Phone", value: "+41 76 270 53 62", href: "tel:+41762705362", arrow: "→" },
-      { label: "LinkedIn", value: "in/giulio-giuffrida", href: "https://www.linkedin.com/", arrow: "↗" },
+      { label: "LinkedIn", value: "in/giulio-giuffrida", href: "https://www.linkedin.com/in/giulio-giuffrida/", arrow: "↗" },
     ],
     footerLeft: "© {year} Giulio Giuffrida",
     footerRight: "Zurich, Switzerland",
