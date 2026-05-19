@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Phone } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 import { toast } from "sonner";
 import FadeIn from "./FadeIn";
 import Typewriter from "./Typewriter";
@@ -7,7 +7,6 @@ import { content } from "@/content";
 export default function Hero() {
   const { hero, contact } = content;
   const emailLink = contact.links.find((l) => l.label === "Email");
-  const phoneLink = contact.links.find((l) => l.label === "Phone");
   const linkedinLink = contact.links.find((l) => l.label === "LinkedIn");
 
   const copyAndContinue = (text: string, label: string) => {
@@ -54,16 +53,6 @@ export default function Hero() {
                   className="text-ink-soft hover:text-ink transition-colors"
                 >
                   <Linkedin className="w-5 h-5" strokeWidth={1.5} />
-                </a>
-              ) : null}
-              {phoneLink ? (
-                <a
-                  href={phoneLink.href}
-                  aria-label="Phone"
-                  onClick={() => copyAndContinue(phoneLink.value, "Phone number")}
-                  className="text-ink-soft hover:text-ink transition-colors"
-                >
-                  <Phone className="w-5 h-5" strokeWidth={1.5} />
                 </a>
               ) : null}
             </div>
