@@ -11,9 +11,11 @@ export default function About() {
             <p className="label-caps">{about.label}</p>
           </FadeIn>
           <FadeIn delay={120}>
-            <p className="max-w-2xl text-[22px] md:text-[26px] leading-[1.5] text-ink font-light tracking-tight">
-              {about.body}
-            </p>
+            <div className="max-w-2xl space-y-6 text-[22px] md:text-[26px] leading-[1.5] text-ink font-light tracking-tight">
+              {about.body.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
           </FadeIn>
         </div>
       </div>
