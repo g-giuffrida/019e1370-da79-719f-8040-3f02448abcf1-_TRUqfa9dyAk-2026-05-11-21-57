@@ -64,7 +64,7 @@ export const content = {
   // -----------------------------
   about: {
     label: "About",
-    body: "Operations Data Analyst with 5 years of experience in production planning and operational analytics within the automotive and clean energy sectors. I combine hands-on operations ownership, having managed production planning for Toyota Yaris, Aygo X, and Climeworks DAC systems, with strong data engineering and GenAI skills.",
+    body: "I'm an Operations Data Analyst with 5 years of experience in Operations and Analytics within the automotive and clean energy sectors. Originally from Siracusa, Italy, I've lived across Luxembourg, the Netherlands, Mexico, Belgium, and Switzerland, with a Bachelor in Business (semester abroad in Mexico) and a Master in Supply Chain Management. I combine hands-on operations ownership, having managed production planning for Toyota Yaris, Aygo X, and Climeworks DAC systems, with strong data engineering and GenAI skills. Outside of work, I'm drawn to AI implementations, hiking, sports, and finance, and I tend to approach problems with a focus on organization, clarity, and the big picture.",
   },
 
   // -----------------------------
