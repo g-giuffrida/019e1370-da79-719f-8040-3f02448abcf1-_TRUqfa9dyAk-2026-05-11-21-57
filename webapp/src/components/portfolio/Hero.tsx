@@ -1,9 +1,13 @@
+import { Mail, Linkedin, Phone } from "lucide-react";
 import FadeIn from "./FadeIn";
 import Typewriter from "./Typewriter";
 import { content } from "@/content";
 
 export default function Hero() {
-  const { hero } = content;
+  const { hero, contact } = content;
+  const emailLink = contact.links.find((l) => l.label === "Email");
+  const phoneLink = contact.links.find((l) => l.label === "Phone");
+  const linkedinLink = contact.links.find((l) => l.label === "LinkedIn");
 
   return (
     <section id="top" className="pt-28 md:pt-36 pb-20 md:pb-28">
@@ -20,6 +24,37 @@ export default function Hero() {
             <p className="mt-6 text-[13px] md:text-[14px] text-ink-soft tracking-[0.22em] uppercase">
               {hero.subtitle}
             </p>
+            <div className="mt-5 flex items-center justify-center gap-5">
+              {emailLink ? (
+                <a
+                  href={emailLink.href}
+                  aria-label="Email"
+                  className="text-ink-soft hover:text-ink transition-colors"
+                >
+                  <Mail className="w-5 h-5" strokeWidth={1.5} />
+                </a>
+              ) : null}
+              {linkedinLink ? (
+                <a
+                  href={linkedinLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-ink-soft hover:text-ink transition-colors"
+                >
+                  <Linkedin className="w-5 h-5" strokeWidth={1.5} />
+                </a>
+              ) : null}
+              {phoneLink ? (
+                <a
+                  href={phoneLink.href}
+                  aria-label="Phone"
+                  className="text-ink-soft hover:text-ink transition-colors"
+                >
+                  <Phone className="w-5 h-5" strokeWidth={1.5} />
+                </a>
+              ) : null}
+            </div>
           </div>
         </FadeIn>
 
